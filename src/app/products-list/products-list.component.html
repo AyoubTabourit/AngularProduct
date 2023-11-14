@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h5>Products List</h5>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name Product</th>
+          <th>Price</th>
+          <th>Date </th>
+          <th>Categorie </th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+        <tr>
+          <td>{{  product.productId }}</td>
+          <td>{{  product.productName }}</td>
+          <td>{{  product.productPrice }}</td>
+          <td>{{  product.dateCreation | date :"dd/MM/yyyy" }}</td>
+          <td>{{  product.category?.categoryName }}</td>
+          <td><a class="btn bg-danger" (click)="deleteProduct(product)">Delete</a></td>
+          <td><a class="btn bg-success" [routerLink]="['/edit-Product',product.productId]">Update</a></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
